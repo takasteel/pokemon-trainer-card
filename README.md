@@ -26,6 +26,7 @@ npm run start
 ## Technologies I studied while making this
 
 ✅ HTML, CSS, JS  
+✅ External API call ([Poke API](https://pokeapi.co/))  
 ✅ ReactJS  (useState, useEffect, useContext and a little bit of useRef)  
 ✅ styled-components  
 ✅ Progressive Web App (PWA)  
