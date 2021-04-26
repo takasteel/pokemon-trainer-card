@@ -15,7 +15,7 @@ git clone https://github.com/takasteel/pokemon-trainer-card.git
 cd pokemon-trainer-card
 
 # if you are using yarn:
-yarn
+yarn install
 yarn start
 
 # if you are using npm:
