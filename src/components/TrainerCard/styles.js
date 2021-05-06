@@ -10,11 +10,9 @@ export const Card = styled.div`
   align-items: center;
   width: 800px;
   height: 500px;
-  background: linear-gradient(135deg, var(--primary) 40%, #0085ba);;
+  background: ${props => `var(--${props.theme})`};
   border-radius: 25px;
   
-  
-
   .inner-container {
     display: grid;
     grid-template:
@@ -26,7 +24,7 @@ export const Card = styled.div`
     width: 95%;
     height: 90%;
 
-    border: 3px solid #05709e;
+    border: 3px solid rgba(255, 255, 255, 0.6);
     border-radius: 10px;
     
     .trainer-info-container {
@@ -36,13 +34,13 @@ export const Card = styled.div`
 
       h3 {
           font-size: 1rem;
-          color: #004577;
+          color: black;
           margin-left: 0px;
         }
 
       input {
         height: 50%;
-        background: #b2e2ef;
+        background: rgba(255, 255, 255, 0.5);
         border: 0;
         border-radius: 8px;
         outline: none;
@@ -52,7 +50,7 @@ export const Card = styled.div`
       }
 
       hr {
-        border: 1px solid #05709e;
+        border: 1px solid rgba(255, 255, 255, 0.6);
         margin-top: 0.25rem;
       }
 
@@ -90,6 +88,7 @@ export const Card = styled.div`
       display: block;
     }
   }
+
 
   @media(max-width: 1080px) {
     width: 600px;
@@ -213,7 +212,7 @@ export const TeamContainer = styled.div`
   div {
     height: 90px;
     width: 90px;
-    background: rgb(224, 241, 247, 0.4);
+    background: rgba(255, 255, 255, 0.4);
     transform: rotate(45deg);
     transition: filter 0.2s;
     cursor: pointer;
@@ -250,6 +249,15 @@ export const TeamContainer = styled.div`
     div {
       height: 25px;
       width: 25px;
+    }
+  }
+`
+export const ThemeContainer = styled.div`
+  display: flex;
+  margin-bottom: 2rem;
+  div {
+    & + div {
+      margin-left: 0.5rem;
     }
   }
 `

@@ -3,13 +3,15 @@ import { useRef, useState } from 'react';
 import { exportComponentAsPNG } from 'react-component-export-image';
 
 import { usePokemon } from '../../hook/usePokemon';
+import { useTheme } from '../../hook/useTheme';
 import { PokemonSlot } from '../PokemonSlot';
+import { ThemeOptions } from '../ThemeOptions';
 
-import { Container, Card, TeamContainer } from './styles';
+import { Container, Card, TeamContainer, ThemeContainer } from './styles';
 
 export function TrainerCard() {
   const { pokemons, handleRemovePokemon } = usePokemon();  
-  
+  const { currentTheme, themes, changeTheme } = useTheme();
   
   const cardRef = useRef();
 
@@ -21,7 +23,7 @@ export function TrainerCard() {
   return(
     <>
       <Container ref={cardRef}>
-        <Card>
+        <Card theme={currentTheme}>
           <div className='inner-container'>
             <div className='trainer-info-container'>
               <div className='trainer-info-name'>
@@ -59,6 +61,17 @@ export function TrainerCard() {
           </div>
         </Card>
       </Container>
+
+      <ThemeContainer>
+        {themes.map((theme, index) => (
+          <ThemeOptions 
+            key={theme} 
+            theme={themes[index]} 
+            onClick={() => changeTheme(theme)}
+          />
+        ))}
+      </ThemeContainer>
+
       <Button
         variant="contained" 
         color="secondary"

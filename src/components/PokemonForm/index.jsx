@@ -2,27 +2,11 @@ import { Button, TextField } from '@material-ui/core';
 import { Autocomplete } from "@material-ui/lab";
 import { pokem } from '../../pokemons';
 import { usePokemon } from '../../hook/usePokemon';
-import { useState } from 'react';
 
 import { Container } from './styles';
 
 export function PokemonForm() {
-  const { isDisabled, isLoading, getPokemon, teste, setTeste} = usePokemon();
-  const [typedPokemon, setTypedPokemon] = useState('');
-
-  const handleChange = (event, newEvent) => {
-    setTeste(newEvent)
-    setTypedPokemon(newEvent)
-  }
-  
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!teste) {
-      return;
-    }
-    // setTeste(typedPokemon)
-    getPokemon();
-  }
+  const { isDisabled, isLoading, handleChange, handleSubmit, typedPokemon} = usePokemon();
 
   return(
     <Container>
@@ -34,13 +18,12 @@ export function PokemonForm() {
         <Autocomplete
           options={pokem}
           getOptionLabel={(option) => option}
-          style={{ width: 300 }}
-          clearOnEscape={false}
+          clearOnEscape={true}
           clearOnBlur={false}
           autoSelect={true}
           inputValue={typedPokemon}
           onInputChange={handleChange}
-          value={typedPokemon}
+          onClose={() => console.log("close")}
           disabled={isDisabled}
           renderInput={(params) => <TextField {...params} label="Type a pokemon" variant="outlined" />}
         />
