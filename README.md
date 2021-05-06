@@ -2,7 +2,7 @@
 
 This is a web app that allows you to create your pokemon trainer card. Work as PWA too!   
 
-Inspired by Luby's [blog post](https://www.luby.com.br/reactjs/como-treinar-programacao/).
+![alt text](https://github.com/takasteel/pokemon-trainer-card/blob/main/public/print.jpg)
 
 You can check the demo [**here**](https://pokemon-trainer-card.netlify.app/).
 
@@ -27,7 +27,8 @@ npm run start
 
 ✅ HTML, CSS, JS  
 ✅ External API call ([Poke API](https://pokeapi.co/))  
-✅ ReactJS  (useState, useEffect, useContext and a little bit of useRef)  
+✅ ReactJS    
 ✅ styled-components  
 ✅ Progressive Web App (PWA)  
-✅ react-component-export-image
+✅ react-component-export-image  
+✅ Material UI
