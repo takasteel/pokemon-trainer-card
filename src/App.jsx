@@ -1,9 +1,10 @@
-import { PokemonListProvider } from './context/PokemonListContext'
-import { Main } from "./components/Main";
-
 import { GlobalStyle } from './styles/global'
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core'
+import { PokemonContextProvider } from './hook/usePokemon';
+import { MainContainer } from "./styles";
+import { PokemonForm } from "./components/PokemonForm";
+import { TrainerCard } from "./components/TrainerCard";
 
 export function App() {
   const theme = createMuiTheme({
@@ -12,18 +13,21 @@ export function App() {
         main: '#80c5dc',
       },
       secondary: {
-        main: '#d65f38',
+        main: '#d41d1d',
       },
     },
   });
 
 
   return(
-    <PokemonListProvider>
+    <PokemonContextProvider>
       <ThemeProvider theme={theme}>
-        <Main />
+        <MainContainer>
+          <PokemonForm/>
+          <TrainerCard/>
+        </MainContainer>
         <GlobalStyle />
       </ThemeProvider>
-    </PokemonListProvider>
+    </PokemonContextProvider>
   )
 }
