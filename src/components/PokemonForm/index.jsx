@@ -24,7 +24,7 @@ export function PokemonForm() {
           inputValue={typedPokemon}
           onInputChange={handleChange}
           onClose={() => console.log("close")}
-          disabled={isDisabled}
+          // disabled={isDisabled}
           renderInput={(params) => <TextField {...params} label="Type a pokemon" variant="outlined" />}
         />
         <Button
