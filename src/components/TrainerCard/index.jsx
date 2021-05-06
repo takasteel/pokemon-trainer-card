@@ -1,16 +1,15 @@
 import { Button } from '@material-ui/core';
-import { useContext, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { exportComponentAsPNG } from 'react-component-export-image';
-import { PokemonListContext } from '../../context/PokemonListContext';
+
+import { usePokemon } from '../../hook/usePokemon';
 import { PokemonSlot } from '../PokemonSlot';
 
-import { Container, TeamContainer } from './styles';
+import { Container, Card, TeamContainer } from './styles';
 
 export function TrainerCard() {
-  const { pokemons, setPokemons } = useContext(PokemonListContext);  
-  const handleRemovePokemon = (slot) => {
-    setPokemons(pokemons.filter((pokemon) => pokemon !== pokemons[slot]))    
-  }
+  const { pokemons, handleRemovePokemon } = usePokemon();  
+  
   
   const cardRef = useRef();
 
@@ -22,47 +21,49 @@ export function TrainerCard() {
   return(
     <>
       <Container ref={cardRef}>
-        <div className='inner-container'>
-          <div className='trainer-info-container'>
-            <div className='trainer-info-name'>
-              <h3>Trainer name</h3>
-              <input 
-                type="name"
-              />
+        <Card>
+          <div className='inner-container'>
+            <div className='trainer-info-container'>
+              <div className='trainer-info-name'>
+                <h3>Trainer name</h3>
+                <input 
+                  type="name"
+                />
 
+              </div>
+              <hr/>
+              <div className='trainer-info-code'>
+                <h3>Friend Code </h3>
+                <input 
+                  type="text"
+                />
+              </div>
+              <hr/>
             </div>
-            <hr/>
-            <div className='trainer-info-code'>
-              <h3>Friend Code </h3>
-              <input 
-                type="text"
-              />
+            <div 
+              className='trainer-image'
+              onClick={() => changeTrainer()}
+            >
+              <img src={trainer} alt="Lucas"/>
             </div>
-            <hr/>
+            <TeamContainer>
+              {pokemons.map((pokemon, slot) => (
+                <PokemonSlot
+                  onClick={() => handleRemovePokemon(slot)}
+                  key={pokemon.id * Math.random()}
+                  name={pokemon.name}
+                  spriteUrl={pokemon.sprites.other['official-artwork']['front_default']}
+                />
+              ))}
+            </TeamContainer>
           </div>
-          <div 
-            className='trainer-image'
-            onClick={() => changeTrainer()}
-          >
-            <img src={trainer} alt="Lucas"/>
-          </div>
-          <TeamContainer>
-            {pokemons.map((pokemon, slot) => (
-              <PokemonSlot
-                onClick={() => handleRemovePokemon(slot)}
-                key={pokemon.id * Math.random()}
-                name={pokemon.name}
-                spriteUrl={pokemon.sprites.other['official-artwork']['front_default']}
-              />
-            ))}
-          </TeamContainer>
-        </div>
+        </Card>
       </Container>
       <Button
         variant="contained" 
         color="secondary"
         type="submit"
-        onClick={() => exportComponentAsPNG(cardRef)}
+        onClick={() => exportComponentAsPNG(cardRef, {html2CanvasOptions: {backgroundColor: null}})}
       >
         Save Trainer Card
       </Button>

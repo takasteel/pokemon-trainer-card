@@ -1,17 +1,19 @@
 import styled from 'styled-components'
-
 export const Container = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background: transparent;
+`;
+export const Card = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 800px;
   height: 500px;
   background: linear-gradient(135deg, var(--primary) 40%, #0085ba);;
-
   border-radius: 25px;
   
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  
 
   .inner-container {
     display: grid;
