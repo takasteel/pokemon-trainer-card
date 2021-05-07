@@ -82,10 +82,10 @@ export const Card = styled.div`
     height: 100%;
     width: 100%;
     border-radius: 20px;
-    cursor: pointer;
-
+    
     img {
       display: block;
+      pointer-events: none;
     }
   }
 

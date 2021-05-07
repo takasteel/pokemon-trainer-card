@@ -1,8 +1,9 @@
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { useState } from 'react';
 
+import { useState } from 'react';
+import { useCharacter } from '../../hooks/useCharacter';
 import { Container } from './styles';
 
 import char0 from '../../assets/0.webp';
@@ -25,10 +26,12 @@ import char16 from '../../assets/16.webp';
 import char17 from '../../assets/17.webp';
 
 export function CharacterOptions() {
+  const { changeChar } = useCharacter();
   const [value, setValue] = useState(0);
 
-  const handleChangeCharacter = (event, newValue) => {
+  const handleChange = (event, newValue) => {
     setValue(newValue);
+    changeChar(newValue);
   };
 
   return(
@@ -36,7 +39,7 @@ export function CharacterOptions() {
       <AppBar position="static" color="default">
         <Tabs
           value={value}
-          onChange={handleChangeCharacter}
+          onChange={handleChange}
           indicatorColor="secondary"
           textColor="secondary"
           variant="scrollable"

@@ -1,10 +1,18 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const CharacterContext = createContext();
 
 export function CharacterContextProvider({ children }) {
+  const [char, setChar] = useState("0");
+
+  function changeChar(char) {
+    setChar(char);
+  }
   return(
-    <CharacterContext.Provider>
+    <CharacterContext.Provider value={{
+      char,
+      changeChar,
+    }}>
       {children}
     </CharacterContext.Provider>
   );

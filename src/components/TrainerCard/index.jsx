@@ -10,18 +10,14 @@ import { ThemeOptions } from '../ThemeOptions';
 
 import { Container, Card, TeamContainer, ThemeContainer } from './styles';
 
-import char0 from '../../assets/0@full.webp';
+import { useCharacter } from '../../hooks/useCharacter';
 
 export function TrainerCard() {
   const { pokemons, handleRemovePokemon } = usePokemon();  
   const { currentTheme, themes, changeTheme } = useTheme();
-  
-  const cardRef = useRef();
+  const { char } = useCharacter();
 
-  // const [ trainer, setTrainer ] = useState("lucas.png");
-  // const changeTrainer = () => {
-  //   trainer === "lucas.png" ? setTrainer("dawn.png") : setTrainer("lucas.png")
-  // }
+  const cardRef = useRef();
 
   return(
     <>
@@ -47,9 +43,8 @@ export function TrainerCard() {
             </div>
             <div 
               className='trainer-image'
-              // onClick={() => changeTrainer()}
             >
-              <img src={char0} alt="Lucas"/>
+              <img src={`assets/${char}@full.webp`} alt="Lucas"/>
             </div>
             <TeamContainer>
               {pokemons.map((pokemon, slot) => (
