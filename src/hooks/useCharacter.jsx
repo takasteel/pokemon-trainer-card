@@ -4,18 +4,18 @@ const CharacterContext = createContext();
 
 export function CharacterContextProvider({ children }) {
   const [char, setChar] = useState("0");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isCharacterLoading, setIsCharacterLoading] = useState(false);
 
   function changeChar(char) {
-    setIsLoading(true);
+    setIsCharacterLoading(true);
     setChar(char);
   }
   return(
     <CharacterContext.Provider value={{
       char,
       changeChar,
-      isLoading,
-      setIsLoading,
+      isCharacterLoading,
+      setIsCharacterLoading,
     }}>
       {children}
     </CharacterContext.Provider>

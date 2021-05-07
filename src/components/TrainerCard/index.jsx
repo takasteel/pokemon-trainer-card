@@ -4,19 +4,18 @@ import { exportComponentAsPNG } from 'react-component-export-image';
 
 import { usePokemon } from '../../hooks/usePokemon';
 import { useTheme } from '../../hooks/useTheme';
+import { useCharacter } from '../../hooks/useCharacter';
 import { CharacterOptions } from '../CharacterOptions';
 import { PokemonSlot } from '../PokemonSlot';
 import { ThemeOptions } from '../ThemeOptions';
 
 import { Container, Card, TeamContainer, ThemeContainer } from './styles';
 
-import { useCharacter } from '../../hooks/useCharacter';
+import { CharacterImage } from '../CharacterImage';
 
 export function TrainerCard() {
   const { pokemons, handleRemovePokemon } = usePokemon();  
   const { currentTheme, themes, changeTheme } = useTheme();
-  const { char, isLoading, setIsLoading } = useCharacter();
-
   const cardRef = useRef();
 
   return(
@@ -41,17 +40,9 @@ export function TrainerCard() {
               </div>
               <hr/>
             </div>
-            <div 
-              className='trainer-image'
-            >
-              {isLoading && (<p className="loading">Loading...</p>)}
-              <img 
-                src={`assets/${char}@full.webp`} 
-                alt="Character" 
-                onLoad={() => setIsLoading(false)}
-              />
-              
-            </div>
+            
+            <CharacterImage/>
+
             <TeamContainer>
               {pokemons.map((pokemon, slot) => (
                 <PokemonSlot

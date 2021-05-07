@@ -74,30 +74,6 @@ export const Card = styled.div`
 
   }
   
-  .trainer-image {
-    grid-area: trainer-image;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
-    position: relative;
-      .loading {
-        position: absolute;
-        font-size: 2rem;
-        color: white;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
-      }
-    img {
-      display: block;
-      pointer-events: none;
-    }
-  }
-
-
   @media(max-width: 1080px) {
     width: 600px;
     height: 375px;
@@ -114,14 +90,6 @@ export const Card = styled.div`
           padding: 0 9px 0 9px;;
           font-size: 0.9rem;
         }
-      }
-    }
-    .trainer-image {
-      cursor: pointer;
-
-      img {
-        max-height: 300px;
-        max-width: 170px;
       }
     }
   }
@@ -157,12 +125,6 @@ export const Card = styled.div`
         }
       }
     }
-    .trainer-image {
-      img {
-        max-width: 130px;
-        max-height: 220px;
-      }
-    }
   }
 
 
@@ -194,12 +156,6 @@ export const Card = styled.div`
         .trainer-info-code {
           margin: 0.25rem 0.5rem 0 0.5rem;
         }
-      }
-    }
-    .trainer-image {
-      img {
-        max-width: 80px;
-        max-height: 150px;
       }
     }
   }
