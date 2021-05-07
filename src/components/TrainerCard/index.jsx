@@ -76,7 +76,7 @@ export function TrainerCard() {
         variant="contained" 
         color="secondary"
         type="submit"
-        onClick={() => exportComponentAsPNG(cardRef, {html2CanvasOptions: {backgroundColor: null}})}
+        onClick={() => exportComponentAsPNG(cardRef, {fileName: "trainer-card", html2CanvasOptions: {backgroundColor: null}})}
       >
         Save Trainer Card
       </Button>
