@@ -1,7 +1,7 @@
 import { Button, TextField } from '@material-ui/core';
 import { Autocomplete } from "@material-ui/lab";
 import { pokem } from '../../pokemons';
-import { usePokemon } from '../../hook/usePokemon';
+import { usePokemon } from '../../hooks/usePokemon';
 
 import { Container } from './styles';
 

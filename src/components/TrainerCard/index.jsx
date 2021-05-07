@@ -2,12 +2,15 @@ import { Button } from '@material-ui/core';
 import { useRef, useState } from 'react';
 import { exportComponentAsPNG } from 'react-component-export-image';
 
-import { usePokemon } from '../../hook/usePokemon';
-import { useTheme } from '../../hook/useTheme';
+import { usePokemon } from '../../hooks/usePokemon';
+import { useTheme } from '../../hooks/useTheme';
+import { CharacterOptions } from '../CharacterOptions';
 import { PokemonSlot } from '../PokemonSlot';
 import { ThemeOptions } from '../ThemeOptions';
 
 import { Container, Card, TeamContainer, ThemeContainer } from './styles';
+
+import char0 from '../../assets/0@full.webp';
 
 export function TrainerCard() {
   const { pokemons, handleRemovePokemon } = usePokemon();  
@@ -15,10 +18,10 @@ export function TrainerCard() {
   
   const cardRef = useRef();
 
-  const [ trainer, setTrainer ] = useState("lucas.png");
-  const changeTrainer = () => {
-    trainer === "lucas.png" ? setTrainer("dawn.png") : setTrainer("lucas.png")
-  }
+  // const [ trainer, setTrainer ] = useState("lucas.png");
+  // const changeTrainer = () => {
+  //   trainer === "lucas.png" ? setTrainer("dawn.png") : setTrainer("lucas.png")
+  // }
 
   return(
     <>
@@ -44,9 +47,9 @@ export function TrainerCard() {
             </div>
             <div 
               className='trainer-image'
-              onClick={() => changeTrainer()}
+              // onClick={() => changeTrainer()}
             >
-              <img src={trainer} alt="Lucas"/>
+              <img src={char0} alt="Lucas"/>
             </div>
             <TeamContainer>
               {pokemons.map((pokemon, slot) => (
@@ -61,6 +64,8 @@ export function TrainerCard() {
           </div>
         </Card>
       </Container>
+      
+      <CharacterOptions/>
 
       <ThemeContainer>
         {themes.map((theme, index) => (
@@ -71,7 +76,7 @@ export function TrainerCard() {
           />
         ))}
       </ThemeContainer>
-
+      
       <Button
         variant="contained" 
         color="secondary"

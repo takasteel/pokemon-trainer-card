@@ -1,4 +1,4 @@
-import { useTheme } from '../../hook/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 import { Container } from './styles';
 
 export function ThemeOptions({ theme }) {
