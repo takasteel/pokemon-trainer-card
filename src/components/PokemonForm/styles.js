@@ -19,7 +19,7 @@ export const Container = styled.div`
     }
   }
   .description {
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     text-align: center;
   }

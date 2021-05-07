@@ -254,10 +254,14 @@ export const TeamContainer = styled.div`
 `
 export const ThemeContainer = styled.div`
   display: flex;
-  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   div {
     & + div {
-      margin-left: 0.5rem;
+      margin-left: 1rem;
+      @media(max-width: 720px) {
+        margin-left: 0.5rem;
+      }
     }
   }
 `
