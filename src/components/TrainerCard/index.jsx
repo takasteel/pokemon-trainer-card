@@ -15,7 +15,7 @@ import { useCharacter } from '../../hooks/useCharacter';
 export function TrainerCard() {
   const { pokemons, handleRemovePokemon } = usePokemon();  
   const { currentTheme, themes, changeTheme } = useTheme();
-  const { char } = useCharacter();
+  const { char, isLoading, setIsLoading } = useCharacter();
 
   const cardRef = useRef();
 
@@ -44,7 +44,13 @@ export function TrainerCard() {
             <div 
               className='trainer-image'
             >
-              <img src={`assets/${char}@full.webp`} alt="Lucas"/>
+              {isLoading && (<p className="loading">Loading...</p>)}
+              <img 
+                src={`assets/${char}@full.webp`} 
+                alt="Character" 
+                onLoad={() => setIsLoading(false)}
+              />
+              
             </div>
             <TeamContainer>
               {pokemons.map((pokemon, slot) => (

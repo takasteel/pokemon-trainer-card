@@ -28,8 +28,10 @@ import char17 from '../../assets/17.webp';
 export function CharacterOptions() {
   const { changeChar } = useCharacter();
   const [value, setValue] = useState(0);
-
   const handleChange = (event, newValue) => {
+    if (newValue === value) {
+      return
+    }
     setValue(newValue);
     changeChar(newValue);
   };

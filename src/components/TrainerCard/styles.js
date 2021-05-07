@@ -82,7 +82,15 @@ export const Card = styled.div`
     height: 100%;
     width: 100%;
     border-radius: 20px;
-    
+    position: relative;
+      .loading {
+        position: absolute;
+        font-size: 2rem;
+        color: white;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+      }
     img {
       display: block;
       pointer-events: none;
