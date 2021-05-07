@@ -95,7 +95,7 @@ export const Card = styled.div`
     height: 375px;
     border-radius: 15px;
     .inner-container {
-      border: 2px solid #05709e;
+      border: 2px solid rgba(255, 255, 255, 0.6);
       border-radius: 8px;
 
       .trainer-info-container {
@@ -125,7 +125,7 @@ export const Card = styled.div`
     /* width: 210px;
     height: 150px; */
     .inner-container {
-      border: 1px solid #05709e;
+      border: 1px solid rgba(255, 255, 255, 0.6);
       border-radius: 7px;
       .trainer-info-container {
         h3 {
@@ -138,7 +138,7 @@ export const Card = styled.div`
         }
         hr {
           border: 0;
-          border-top: 1px solid #05709e;
+          border-top: 1px solid rgba(255, 255, 255, 0.6);
         }
         .trainer-info-name {
           margin: 0.35rem 0.5rem 0 0.5rem;
@@ -163,7 +163,7 @@ export const Card = styled.div`
     height: 195px;
     border-radius: 10px;
     .inner-container {
-      border: 1px solid #05709e;
+      border: 1px solid rgba(255, 255, 255, 0.6);
       border-radius: 6px;
 
       .trainer-info-container {
@@ -177,7 +177,7 @@ export const Card = styled.div`
         }
         hr {
           border: 0;
-          border-top: 1px solid #05709e;
+          border-top: 1px solid rgba(255, 255, 255, 0.6);
         }
         .trainer-info-name {
           margin: 0.25rem 0.5rem 0 0.5rem;

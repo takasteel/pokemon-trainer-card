@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { exportComponentAsPNG } from 'react-component-export-image';
 
 import { usePokemon } from '../../hooks/usePokemon';
