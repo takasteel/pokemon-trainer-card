@@ -26,7 +26,7 @@ export function App() {
         <ThemeProvider theme={theme}>
           <MainContainer>
             <PokemonForm/>
-              <TrainerCard/>
+            <TrainerCard/>
           </MainContainer>
           <GlobalStyle />
         </ThemeProvider>
